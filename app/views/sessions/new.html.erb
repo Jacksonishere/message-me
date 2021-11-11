@@ -1,4 +1,5 @@
 <div class="ui container">
+  <%= render partial: 'shared/flashes' %>
   <h1>Welcome to MessageMe - a <i>complete Chat App</i></h1>
   
   <h3 class="ui center aligned icon header">
@@ -9,23 +10,30 @@
   <div class="ui placeholder segment">
     <div class="ui two column very relaxed stackable grid">
       <div class="column">
-        <div class="ui form">
+        <%= form_with(scope: :session, url: login_path, local: true, class: "ui form") do |f| %>
           <div class="field">
-            <label>Username</label>
+            <%= f.label :username, "Username" %>
             <div class="ui left icon input">
-              <input type="text" placeholder="Username">
+              <%= f.text_field :username, placeholder: "Username", value: @user.username %>
               <i class="user icon"></i>
             </div>
           </div>
           <div class="field">
-            <label>Password</label>
+            <%= f.label :password, "Password" %>
             <div class="ui left icon input">
-              <input type="password">
+              <%= f.password_field :password, placeholder: "Password" %>
               <i class="lock icon"></i>
             </div>
           </div>
-          <div class="ui blue submit button orange">Login</div>
-        </div>
+          <%= f.submit "Log in", class: "ui blue submit button orange" %>
+        <% end %>
+
+
+
+
+
+
+
       </div>
       <div class="middle aligned column">
         <div class="ui big button">

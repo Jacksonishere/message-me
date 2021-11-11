@@ -1,0 +1,17 @@
+<% if flash.now[:notice] %>
+  <div class="ui success message">
+    <i class="close icon"></i>
+    <div class="header">
+      <%= flash.now[:notice]%>
+    </div>
+  </div>
+<% end %>
+
+<% if flash.now[:alert] %>
+  <div class="ui negative message">
+    <i class="close icon"></i>
+    <div class="header">
+      <%= flash.now[:alert]%>
+    </div>
+  </div>
+<% end %>
