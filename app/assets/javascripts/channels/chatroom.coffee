@@ -5,6 +5,8 @@ App.chatroom = App.cable.subscriptions.create "ChatroomChannel",
   disconnected: ->
     # Called when the subscription has been terminated by the server
 
+  # Called when there's incoming data on the websocket for this channel
   received: (data) ->
-    alert data.foo
-    # Called when there's incoming data on the websocket for this channel
+    $('#messages').append data.mod_message
+    scroll_bottom()
+    clear_message()

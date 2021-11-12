@@ -17,9 +17,21 @@
 //= require jquery
 //= require semantic-ui
 
+scroll_bottom = () => {
+    if ($('#messages-container').length > 0) {
+        $('#messages-container').scrollTop($('#messages-container')[0].scrollHeight);
+    }
+}
+
+clear_message = () => {
+    $('.message-input').val("");
+}
+
 $(document).on("turbolinks:load", () => {
 	$(".ui.dropdown").dropdown();
 	$(".message .close").on("click", function () {
 		$(this).closest(".message").transition("fade");
 	});
+    scroll_bottom();
+    clear_message();
 });
